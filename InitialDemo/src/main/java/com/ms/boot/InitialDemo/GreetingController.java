@@ -1,0 +1,27 @@
+package com.ms.boot.InitialDemo;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/greeting")
+public class GreetingController {
+	
+	@Value("${greetprop}")
+	private String greetProp;
+	
+	@RequestMapping(path = "/default",method = RequestMethod.GET)
+	public String getDefaultMessage()
+	{
+		return "Hello Delta!";
+	}
+	
+	@RequestMapping(path = "/config/{name}", method = RequestMethod.GET)
+	public String getDefaultConfigMessage(@PathVariable String name) {
+		return greetProp + ", " + name;
+	}
+
+}

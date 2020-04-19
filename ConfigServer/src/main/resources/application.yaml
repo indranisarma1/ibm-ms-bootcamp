@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: C:\Indrani\Learning\springconfig
+          skipSslValidation: true
+server:
+  port: 8888
